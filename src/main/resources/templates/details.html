@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My cook book</title>
+    <link rel="stylesheet" type="text/css" th:href="@{'style.css'}"/>
+</head>
+<body>
+
+<div id="main">
+<div th:replace="fragments/header :: header"/>
+
+<div th:replace="fragments/mainmenu :: mainmenu"/>
+
+<div id="recipe">
+
+    <table>
+        <tr>
+            <td><strong>Recipe name</strong></td>
+            <td th:text="${recipe.name}"></td>
+        </tr>
+
+        <tr>
+            <td><strong>Cooking time</strong></td>
+            <td th:text="${recipe.cookingTime} + ' minutes'"></td>
+        </tr>
+
+        <tr>
+            <td><strong>Main ingredient</strong></td>
+            <td th:text="${recipe.mainIngredient}"></td>
+        </tr>
+
+        <tr>
+            <td><strong>Other ingredients</strong></td>
+            <td th:text="${recipe.ingredients}"></td>
+        </tr>
+
+        <tr>
+            <td><strong>Cooking procedure</strong></td>
+            <td th:text="${recipe.cookingProcedure}"></td>
+        </tr>
+    </table>
+</div>
+
+<div th:replace="fragments/footer :: #footer"/>
+
+</div>
+</body>
+</html>

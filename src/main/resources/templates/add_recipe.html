@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My cook book</title>
+    <link rel="stylesheet" type="text/css" th:href="@{'style.css'}"/>
+</head>
+<body id="addRecipe">
+<div id="main">
+
+    <div th:replace="fragments/header :: header"/>
+
+    <div th:replace="fragments/mainmenu :: mainmenu"/>
+
+    <h1>Add recipe</h1>
+
+    <div id="form">
+        <form action="/recipes" method="post">
+            <table>
+                <tr>
+                    <td><lable for="name">Recipe name</lable></td>
+                    <td><input type="text" id="name" name="name"/></td>
+                </tr>
+
+                <tr>
+                    <td><label for="cookingTime">Cooking time</label></td>
+                    <td><input type="text" id="cookingTime" name="cookingTime"/></td>
+                </tr>
+
+                <tr>
+                    <td><label for="mainIngredient">Main ingredient</label></td>
+                    <td><input type="text" id="mainIngredient" name="mainIngredient"/></td>
+                </tr>
+
+                <tr>
+                    <td><label for="ingredients">Ingredients</label></td>
+                    <td><input type="text" id="ingredients" name="ingredients"/></td>
+                </tr>
+
+                <tr>
+                    <td><label for="cookingProcedure">Cooking procedure</label></td>
+                    <td><input type="text" id="cookingProcedure" name="cookingProcedure"/></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Add!"/></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+<br>
+
+    <div th:replace="fragments/footer :: #footer"/>
+
+</div>
+</body>
+</html>

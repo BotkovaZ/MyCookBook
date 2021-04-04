@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Your personal cook book</title>
+    <link rel="stylesheet" type="text/css" th:href="@{style.css}"/>
+</head>
+<body>
+
+<div id="main">
+    <div th:replace="fragments/header :: header"/>
+
+    <h1 th:text="${errormessage}">403 - Access denied</h1>
+
+    <p><a th:href="@{'/'}">Back</a></p>
+
+    <br>
+
+    <div th:replace="fragments/footer :: #footer"/>
+</div>
+
+</body>
+</html>

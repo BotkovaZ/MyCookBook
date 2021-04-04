@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My cook book</title>
+    <link rel="stylesheet" type="text/css" th:href="@{style.css}"/>
+</head>
+<body>
+
+<div id = "main">
+
+    <div th:replace="fragments/header :: header"/>
+
+    <div th:replace="fragments/mainmenu :: mainmenu"/>
+
+    <p>Great you have something to cook with. What you feel like to eat? </p>
+
+    <div id="recipes">
+    <table>
+        <th>Recipe name</th>
+        <th>Cooking time</th>
+        <th>Main ingredient</th>
+        <tr th:each="recipe: ${recipes}">
+<!--            <td><a th:href="@{/single_recipe}" th:text="${recipe.name}"></a></td>-->
+<!--            <td><a th:href="@{'/single_recipe/' + (id=${recipe.recipeId})}" th:text="${recipe.name}"></a></td>-->
+            <td><a th:href="'/recipes/details/' + ${recipe.recipeId}" th:text="${recipe.name}"></a></td>
+            <td th:text="${recipe.cookingTime}"></td>
+            <td th:text="${recipe.mainIngredient}"></td>
+        </tr>
+    </table>
+    </div>
+
+    <br><br>
+
+    <div id="addRecipeForm">
+        <form th:action="@{'/recipes/addRecipe'}" method="post">
+            <label for="name">Recipe name</label>
+            <input type="text" id="name" name="name"/>
+
+            <label for="cookingTime">Cooking time</label>
+            <input type="text" id="cookingTime" name="cookingTime"/>
+            <br><br>
+
+            <label for="mainIngredient">Main ingredient</label>
+            <input type="text" id="mainIngredient" name="mainIngredient"/>
+
+            <label for="ingredients">Other ingredients</label>
+            <input type="text" id="ingredients" name="ingredients"/>
+            <br><br>
+
+            <label for="cookingProcedure">How to prepare</label>
+            <input type="text" id="cookingProcedure" name="cookingProcedure"/>
+
+            <input type="submit" value="Add!"/>
+        </form>
+    </div>
+
+    <br>
+
+    <div th:replace="fragments/footer :: #footer"/>
+
+</div>
+</body>
+</html>

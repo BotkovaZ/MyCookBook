@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My cook book</title>
+    <link rel="stylesheet" type="text/css" th:href="@{style.css}"/>
+</head>
+<body>
+<div id = "main">
+
+    <div th:replace="fragments/header :: header"/>
+
+    <div th:replace="fragments/mainmenu :: mainmenu"/>
+
+    <p>
+        Do you know that situation as well? You're hungry but don't know what to cook. So you open the fridge, look inside for 5 minutes and close it without taking anything. And it repeats itself several times. That's the reason why this app is here. You can save food you have in your fridge most commonly. Go on and pick something. Each food is stuffed with some cool recipes you can choose from so you are ready to cook. Of course you can add any ingredient you like as well as recipes. Go on and enjoy your cooking!!!
+    </p>
+        <br>
+    <img th:src="@{'../pictures/cooking_woman.jpg'}"/>
+
+    <p>
+        <span th:text="'Today is ' + ${#dates.format(#dates.createNow(), 'dd-MM-yyyy HH:mm')}"/>
+    </p>
+
+    <div th:replace="fragments/footer :: #footer"/>
+
+</div>
+</body>
+</html>

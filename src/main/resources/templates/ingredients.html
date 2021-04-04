@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My cook book</title>
+    <link rel="stylesheet" type="text/css" th:href="@{style.css}"/>
+</head>
+<body>
+<div id="main">
+
+    <div th:replace="fragments/header :: header"/>
+
+    <div th:replace="fragments/mainmenu :: mainmenu"/>
+
+        <p>You had this in your fridge last time. <br> Do you still have something left?</p>
+        <br><br>
+
+    <div id="ingredientsList">
+    <table>
+        <tr th:each="ingredient: ${ingredients}">
+<!--            <td><a th:href="'/ingredients/details/' + ${ingredient.ingredientId}" th:text="${ingredient.name}"></a></td>-->
+            <td><a th:href="@{/recipes}" th:text="${ingredient.name}"></a></td>
+        </tr>
+    </table>
+    </div>
+
+    <div id="ingredientForm">
+        <form th:action="@{'/ingredients/addIngredient'}" method="post">
+            <label for="name">Something new? </label>
+            <input type="text" id="name" name="name"/>
+
+            <input type="submit" value="To the fridge!"/>
+        </form>
+    </div>
+    <br>
+    <br>
+
+    <div th:replace="fragments/footer :: #footer"/>
+    <br>
+</div>
+</body>
+</html>
